@@ -1,0 +1,40 @@
+# ============================================================
+# LOG
+# ============================================================
+$LogPath = Join-Path $PSScriptRoot "install.log"
+
+Start-Transcript -Path $LogPath -Append
+
+# ============================================================
+# CONFIG
+# ============================================================
+$BaseUrl = "https://repo.luckyden.org/admin_tan/PowerBGInfoGlobal/raw/branch/main"
+
+$DataPath = "C:\ProgramData\PowerBGInfo"
+$WallpaperPath = "$DataPath\img19-resize.jpg"
+
+# ============================================================
+# DOSSIERS
+# ============================================================
+if (!(Test-Path $DataPath)) {
+    New-Item -ItemType Directory -Path $DataPath -Force
+}
+
+# ============================================================
+# DOWNLOAD
+# ============================================================
+Invoke-WebRequest "$BaseUrl/Set-WallpaperPowerBGInfoCORPORATE.ps1" -OutFile "$DataPath\Set-WallpaperPowerBGInfoCORPORATE.ps1"
+Invoke-WebRequest "$BaseUrl/Set-ScheduledTaskPowerBGInfo.ps1" -OutFile "$DataPath\Set-ScheduledTaskPowerBGInfo.ps1"
+Invoke-WebRequest "$BaseUrl/img19-resize.jpg" -OutFile $WallpaperPath
+
+# ============================================================
+# CREATE SCHEDULED TASK
+# ============================================================
+& "$DataPath\Set-ScheduledTaskPowerBGInfo.ps1"
+
+# ============================================================
+# FIRST RUN
+# ============================================================
+& "$DataPath\Set-WallpaperPowerBGInfoCORPORATE.ps1"
+
+Stop-Transcript
