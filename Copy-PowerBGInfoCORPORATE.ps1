@@ -8,7 +8,7 @@ Start-Transcript -Path $LogPath -Append
 # ============================================================
 # CONFIG
 # ============================================================
-$BaseUrl = "https://repo.luckyden.org/admin_tan/PowerBGInfoGlobal/raw/branch/main"
+$BaseUrl = "https://raw.githubusercontent.com/Luckynours/PowerBGInfoCORPORATE/main.ps1"
 
 $DataPath = "C:\ProgramData\PowerBGInfo"
 $WallpaperPath = "$DataPath\img19-resize.jpg"
