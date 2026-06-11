@@ -24,13 +24,13 @@ if (!(Test-Path $DataPath)) {
 # DOWNLOAD
 # ============================================================
 Invoke-WebRequest "$BaseUrl/Set-WallpaperPowerBGInfoCORPORATE.ps1" -OutFile "$DataPath\Set-WallpaperPowerBGInfoCORPORATE.ps1"
-Invoke-WebRequest "$BaseUrl/Set-ScheduledTaskPowerBGInfo.ps1" -OutFile "$DataPath\Set-ScheduledTaskPowerBGInfo.ps1"
+Invoke-WebRequest "$BaseUrl/Set-ScheduledTaskPowerBGInfoCORPORATE.ps1" -OutFile "$DataPath\Set-ScheduledTaskPowerBGInfoCORPORATE.ps1"
 Invoke-WebRequest "$BaseUrl/img19-resize.jpg" -OutFile $WallpaperPath
 
 # ============================================================
 # CREATE SCHEDULED TASK
 # ============================================================
-& "$DataPath\Set-ScheduledTaskPowerBGInfo.ps1"
+& "$DataPath\Set-ScheduledTaskPowerBGInfoCORPORATE.ps1"
 
 # ============================================================
 # FIRST RUN
