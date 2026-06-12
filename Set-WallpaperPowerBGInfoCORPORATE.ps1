@@ -1,3 +1,13 @@
+# Installer PowerBGInfo si absent
+if (-not (Get-Module -ListAvailable -Name PowerBGInfo)) {
+
+    Write-Output "Installation du module PowerBGInfo..."
+
+    Install-PackageProvider -Name NuGet -Force -Scope AllUsers
+    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+    Install-Module PowerBGInfo -Force -Scope AllUsers
+}
+
 Import-Module PowerBGInfo
 
 # ====================================================================
