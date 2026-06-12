@@ -179,7 +179,7 @@ $palette = @{
 $tiles = @(
     # --- GAUCHE ---
     New-BGInfoVisualCanvasTile -Side Left -IconKind Computer -SurfaceStyle Raised -Label HOSTNAME -Value '{{HostName}}' -Detail 'Hypervisor' -Accent '#49b1d7FF'
-	New-BGInfoVisualCanvasTile -Side Left -IconKind Server -SurfaceStyle Raised -Label 'SERVER ROLE' -Value $RoleValue -Detail $RoleDetail -Accent '#ffa340FF'
+	New-BGInfoVisualCanvasTile -Side Left -IconKind Computer -SurfaceStyle Raised -Label 'SERVER ROLE' -Value $RoleValue -Detail $RoleDetail -Accent '#ffa340FF'
     New-BGInfoVisualCanvasTile -Side Left -IconKind OperatingSystem -SurfaceStyle Raised -Label 'OPERATING SYSTEM' -Value $OSName -Detail $OSDetail -Accent '#00698eFF'
     New-BGInfoVisualCanvasTile -Side Left -IconKind Network -SurfaceStyle Raised -Label 'IP ADDRESS' -Value '{{IPv4Address}}' -Detail 'Management IP Address' -Accent '#49b1d7FF'
     New-BGInfoVisualCanvasTile -Side Left -IconKind User -SurfaceStyle Raised -Label 'LOGGED USER' -Value '{{UserName}}' -Detail 'Active Session' -Accent '#16A34AFF'
