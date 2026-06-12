@@ -64,7 +64,7 @@ $Roles = @()
 
 # AD DS
 if (Get-Service NTDS -ErrorAction SilentlyContinue) {
-    $Roles += "Domain Controler"
+    $Roles += "AD"
 }
 
 # DNS
@@ -79,12 +79,12 @@ if (Get-Service DHCPServer -ErrorAction SilentlyContinue) {
 
 # AD CS
 if (Get-Service CertSvc -ErrorAction SilentlyContinue) {
-    $Roles += "Certificate Server"
+    $Roles += "CS"
 }
 
 # IIS
 if (Get-Service W3SVC -ErrorAction SilentlyContinue) {
-    $Roles += "Web Server"
+    $Roles += "IIS"
 }
 
 # SQL
@@ -98,7 +98,7 @@ $SmbShares = Get-SmbShare -ErrorAction SilentlyContinue | Where-Object {
 }
 
 if ($SmbShares) {
-    $Roles += "File Server"
+    $Roles += "FS"
 }
 
 # Nettoyage
@@ -201,7 +201,7 @@ New-BGInfo -MonitorIndex 0 {
         -Title 'CORPORATE' `
         -Subtitle 'corpo.up-alios.fr' `
         -FeatureAnchor BottomRight `
-        -FeatureWidth 250 `
+        -FeatureWidth 180 `
         -FeatureOffsetX 60 `
         -FeatureOffsetY 60 `
         -Tile $tiles @palette
